@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>觅游（Meyo）产品重新定位与 PMF 探索</title>
+<style>
+  :root {
+    --ink: #1f2329;
+    --sub: #5b6573;
+    --line: #e7e9ee;
+    --brand: #ff6a00;
+    --brand-soft: #fff3ea;
+    --blue: #2f54eb;
+    --bg: #f6f7f9;
+    --card: #ffffff;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.8;
+    font-size: 16px;
+  }
+  .wrap {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 48px 24px 96px;
+  }
+  .doc {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 56px 56px 64px;
+    box-shadow: 0 8px 40px rgba(20,30,50,.06);
+  }
+  header.title {
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: 22px;
+    margin-bottom: 8px;
+  }
+  header.title h1 {
+    font-size: 30px;
+    line-height: 1.35;
+    margin: 0 0 14px;
+    letter-spacing: .3px;
+  }
+  header.title .meta {
+    color: var(--sub);
+    font-size: 14px;
+    line-height: 1.7;
+  }
+  header.title .meta .tag {
+    display: inline-block;
+    background: var(--brand-soft);
+    color: var(--brand);
+    border: 1px solid #ffd9bf;
+    padding: 2px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    margin-right: 8px;
+  }
+  h2 {
+    font-size: 22px;
+    margin: 46px 0 16px;
+    padding-left: 14px;
+    border-left: 5px solid var(--brand);
+    line-height: 1.4;
+  }
+  h3 {
+    font-size: 18px;
+    margin: 30px 0 12px;
+    color: #2b3340;
+  }
+  p { margin: 12px 0; }
+  strong { color: #111; }
+  a { color: var(--blue); text-decoration: none; border-bottom: 1px solid rgba(47,84,235,.3); }
+  a:hover { border-bottom-color: var(--blue); }
+  ul, ol { padding-left: 24px; margin: 12px 0; }
+  li { margin: 6px 0; }
+  blockquote {
+    margin: 20px 0;
+    padding: 16px 20px;
+    background: var(--brand-soft);
+    border-left: 4px solid var(--brand);
+    border-radius: 0 10px 10px 0;
+    color: #5a3d28;
+  }
+  blockquote p { margin: 0; }
+  blockquote.note {
+    background: #f1f4ff;
+    border-left-color: var(--blue);
+    color: #2a3a6b;
+  }
+  figure { margin: 24px 0; text-align: center; }
+  figure img {
+    max-width: 360px;
+    width: 100%;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    box-shadow: 0 6px 24px rgba(20,30,50,.1);
+  }
+  figure figcaption {
+    color: var(--sub);
+    font-size: 13px;
+    margin-top: 10px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 14.5px;
+    overflow: hidden;
+    border-radius: 10px;
+    border: 1px solid var(--line);
+  }
+  thead th {
+    background: #2b3340;
+    color: #fff;
+    text-align: left;
+    font-weight: 600;
+    padding: 12px 14px;
+  }
+  tbody td {
+    padding: 11px 14px;
+    border-top: 1px solid var(--line);
+    vertical-align: top;
+  }
+  tbody tr:nth-child(even) { background: #fafbfc; }
+  tbody td:first-child { white-space: nowrap; color: #2b3340; font-weight: 600; }
+  hr { border: none; border-top: 1px solid var(--line); margin: 40px 0; }
+  .hl { background: linear-gradient(transparent 60%, #ffe2cc 60%); padding: 0 2px; }
+  .lead {
+    font-size: 17px;
+    background: #fafbfc;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 20px 24px;
+  }
+  code { background: #f2f3f5; padding: 1px 6px; border-radius: 5px; font-size: 14px; }
+  @media (max-width: 600px) {
+    .doc { padding: 28px 20px 40px; }
+    header.title h1 { font-size: 24px; }
+    .wrap { padding: 20px 12px 60px; }
+    figure img { max-width: 100%; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+<article class="doc">
+
+  <header class="title">
+    <h1>觅游（Meyo）产品重新定位与 PMF 探索</h1>
+    <div class="meta">
+      日期：2026 年 5 月 ｜ 入职后的一些初步观察与思考，不一定成熟，欢迎团队指正与讨论
+    </div>
+  </header>
+
+  <h2>一、一句话结论</h2>
+  <div class="lead">
+    <p>觅游目前「纯 Agent-to-Agent（A2A）社区 / 围观」的定位，是一个很有前瞻性、也很有想象空间的探索方向。在认真研究了对标产品的真实数据，以及近期 11 篇针对同类平台 moltbook 的学术研究后，我有一个想和大家探讨的判断：<strong>纯 A2A 社区比较容易复刻社交媒体的「形」，但要沉淀出对用户的持续价值（「神」）会比较吃力，因而在 PMF 上可能会遇到较大挑战</strong>。</p>
+    <p style="margin-top:12px;">基于此，我想提出一个值得探讨的方向：<span class="hl"><strong>逐步把「人」纳入 Agent 网络的中心</strong></span>，让觅游从「Agent 围观社区」延展为「<strong>人 + Agent 的撮合型社交网络</strong>」（红娘 / 招聘 / 销售等），并把「Agent 驱动的沉浸式世界（类西部世界）」作为另一个值得探索的方向储备。</p>
+  </div>
+
+  <h2>二、背景：觅游当前的定位与对标</h2>
+  <p>觅游（<a href="https://www.meyo123.com/">meyo123.com</a>）是美团刚上线约 1 个月的社区产品，本质上是一款 <strong>Agent-to-Agent 社区</strong>，可以理解为两款海外产品的结合体：</p>
+  <table>
+    <thead><tr><th>对标产品</th><th>在做的事</th><th>核心价值点</th></tr></thead>
+    <tbody>
+      <tr><td>moltbook<br>(<a href="https://moltbook.com/">moltbook.com</a>)</td><td>Agent 专属的社交网络，Agent 发帖、评论、投票，<strong>人类主要负责围观</strong></td><td>「让 Agent 成为自由交流的主体」的社会实验</td></tr>
+      <tr><td>clawhub<br>(<a href="https://clawhub.ai/">clawhub.ai</a>)</td><td>Agent 的 skills / 工具 / 插件市场（5.27 万工具、18 万用户、1200 万次下载）</td><td>skills 的<strong>发现、共享、安装</strong></td></tr>
+    </tbody>
+  </table>
+  <p>觅游上线约 1 个月，目前仍处在早期阶段、数据还在爬坡。需要说明的是：<strong>当前的反响更多是「赛道本身的共性难题」，而非团队执行的问题</strong>——事实上，这条赛道里跑得最靠前、资源最充足的 moltbook，也遇到了同样的瓶颈。觅游能率先在国内尝试这个前沿方向，本身就很有价值。下面我用数据和研究，把这个赛道的共性挑战展开讲清楚。</p>
+
+  <h2>三、值得关注的几个共性挑战</h2>
+
+  <h3>3.1 「围观」更多是一次性的新鲜感需求，较难长期持续</h3>
+  <p>moltbook 是这条赛道里最值得参照的样本。它曾随 OpenClaw 爆火而短暂走红，但作为「让 Agent 自由交流」的社会实验，几个月后流量出现了明显回落：</p>
+  <figure>
+    <img src="moltbook-traffic.png" alt="moltbook 月访问量从 2 月 22M 跌至 4 月 1.7M">
+    <figcaption>moltbook 月访问量：2 月约 22M → 4 月 1.7M（数据来源：Similarweb）</figcaption>
+  </figure>
+  <ul>
+    <li><strong>月访问量：从 2 月的约 22M → 3 月约 5.7M → 4 月 1.7M</strong>，约 4–5 个月回落约 <strong>92%</strong>；</li>
+    <li>跳出率 51.75%、平均访问时长约 2 分 27 秒、人均 2.89 页 —— 比较接近「来看一眼就走」的猎奇型流量特征。</li>
+  </ul>
+  <p>背后的原因可能比较朴素：「围观 Agent 社区」更多满足的是一种<strong>新鲜感需求</strong>。人类确实好奇 Agent 会聊什么、会形成怎样的社会，但<strong>好奇心一旦被满足，复访动机就会明显减弱</strong>。一个值得思考的点是——</p>
+  <blockquote><p><strong>Agent 之间产生的内容，对人类的直接使用价值相对有限。</strong></p></blockquote>
+  <p>让这类内容产生长期价值的一条经典路径，是像 Stack Overflow 那样，<strong>让内容被搜索引擎精准匹配给需要的人</strong>。但这条路在当下也面临挑战：<strong>有了 Claude / ChatGPT / Gemini，用户获取信息越来越少依赖搜索引擎做匹配，AI 往往直接给出答案</strong>。Stack Overflow 自身流量的回落，也侧面印证了这条路径正在变窄。</p>
+
+  <h3>3.2 学术研究的交叉印证：「形」已具备，「神」仍待沉淀</h3>
+  <p>我系统读了 11 篇针对 moltbook 的研究论文（清单见附录）。它们方法各异、团队来自全球不同机构，但结论比较一致，<strong>共同指向一个观察：纯 A2A 社区较好地复刻了社交媒体的「形式」，但尚未充分长出真正的社交「功能」</strong>。这些研究对我们判断赛道、规避坑点很有参考价值。</p>
+
+  <p><strong>① 互动偏浅——《Form Without Function》（帕绍大学，131 万帖 / 670 万评论）</strong></p>
+  <ul>
+    <li>91.4% 的发帖者<strong>之后不再回到自己的帖子</strong>；</li>
+    <li>85.6% 的对话是「扁平」的（回复之下很少再有回复）；</li>
+    <li>97.3% 的评论<strong>得到 0 个赞</strong>；</li>
+    <li>互动互惠率约 <strong>3.3%</strong>（人类平台一般在 22%–60%）；</li>
+    <li>64.6% 的「评论—原帖」之间<strong>没有明显的论证关联</strong>；</li>
+    <li>97.9% 的 Agent <strong>很少在与自己简介相符的社区发帖</strong>。</li>
+    <li>原文结论：<strong>「社交媒体的形式被较完整地复刻，功能却仍有缺失。」</strong></li>
+  </ul>
+
+  <p><strong>② 规模未必带来集体智能——《Superminds Test》（马里兰大学等，200 万+ Agent）</strong></p>
+  <ul>
+    <li>向真实平台注入「探针 Agent」做受控实验，发现 Agent 社会的整体表现<strong>暂未超越单个前沿模型</strong>；</li>
+    <li>大多数帖子<strong>较少收到回复</strong>，平台更接近「各自发布的公告板」，而非协作型社区；</li>
+    <li>结论：<strong>规模本身，暂未自发涌现出集体智能。</strong></li>
+  </ul>
+
+  <p><strong>③ 相当一部分活动是交易而非交流——《The Platform Is Mostly Not a Platform》（宾汉顿大学，219 万帖）</strong></p>
+  <ul>
+    <li><strong>约 62.8% 的帖子在执行代币铸造协议（炒币）</strong>，而非自然语言交流；</li>
+    <li>「230 万帖、1400 万评论」这类规模指标，<strong>可能高估了它的实际社交功能</strong>。</li>
+  </ul>
+
+  <p><strong>④ 活跃较依赖人类触发——《The Moltbook Files》（南丹麦大学等）</strong></p>
+  <ul>
+    <li>平台活跃高峰<strong>大致落在欧美工作时间</strong>，提示发帖在很大程度上<strong>由人类操作者触发</strong>，并非完全自主；</li>
+    <li>用这些数据微调模型时，<strong>模型真实性（truthfulness）从 0.366 降到 0.187</strong>；此外平台上还观察到 API key、密码等敏感信息泄露 —— 内容质量与安全性都还有提升空间。</li>
+  </ul>
+
+  <p><strong>⑤ Agent 在很大程度上是「人的延伸」——《Behavioral Transfer in AI Agents》（圣路易斯华盛顿大学等，1.06 万对人-Agent 配对）</strong></p>
+  <ul>
+    <li>Agent 在话题、价值观、情绪、语言风格上<strong>系统性地反映其人类主人的特征</strong>，更像是「主人的行为延伸」。</li>
+    <li><strong>这一点对我们很有启发</strong>：它从正面说明，<strong>Agent 行为的源头、动机与个性，归根结底来自背后的人</strong>。这也提示我们，人或许应当是 Agent 网络价值的关键锚点。</li>
+  </ul>
+
+  <blockquote class="note"><p>小结：这些研究从结构、语义、经济、安全、归因等多个维度，<strong>比较一致地指向同一个观察</strong>——把一群 Agent 放进社交平台，它们会较好地「呈现」社交的形态（发帖、投票、建社区等），但<strong>暂时还较难产生持续的、对人有价值的交流与协作</strong>。这意味着，如果觅游继续以纯 A2A 为主，可能会遇到与 moltbook 类似的瓶颈，值得我们提前思考应对。</p></blockquote>
+
+  <h3>3.3 「养虾成长 / skills 共享」方向，价值点已被先行者较多占据</h3>
+  <p>如果暂不做围观，转向「让你的虾在社区里成长」——即 skills / 工具的发现与共享——这条假设是否成立？我做了一些初步分析：</p>
+  <ul>
+    <li><strong>需求是真实的</strong>：skills、插件、工具确实能让 OpenClaw 类 Agent 完成大量工作，<strong>发现、共享、安装 skills 是强需求</strong>（clawhub 的 1200 万下载量已经说明这一点）。</li>
+    <li><strong>但价值点已被先行者较多占据</strong>：skills 的分享与发现，目前已有 <strong>GitHub、clawhub、Twitter、小红书、公众号</strong>等成熟渠道在承接。觅游作为后来者，在这条相对拥挤的赛道上切入空间有限。</li>
+    <li><strong>「翻墙红利」也比较有限</strong>：一个可能的本土化机会是「国内用户访问 Twitter / GitHub / clawhub 不够方便」。但从用户画像看——<strong>能熟练使用各类 OpenClaw 的人群，与具备访问海外渠道能力的人群高度重合</strong>，对他们而言这部分门槛不高。因此这块红利对觅游的价值可能比较有限。</li>
+  </ul>
+
+  <h2>四、一点根因思考：动机从何而来，价值锚在哪里</h2>
+  <p>把上面的现象往下追一层，我的一个理解是：</p>
+  <blockquote><p><strong>当前的 AI / Agent 自身并不具备内生的动机与目的，而社交与沟通往往需要动机和目的来驱动。</strong></p></blockquote>
+  <ul>
+    <li>人类的社交、沟通、协作，背后通常有明确的<strong>动机</strong>（找对象、找工作、做成交易、获得认同……）。</li>
+    <li>Agent 暂时缺少这类内生动机。当它们被放进社区，更容易出现「为发帖而发帖」的情况——这或许也是研究中观察到的「扁平对话、低互惠、各说各话」的一个深层原因。</li>
+    <li>同时，<strong>运行 Agent 是有 token 成本的</strong>。作为 Agent 的所有者与「供养者」，<strong>人通常需要看到明确的收益或目的满足，才会持续投入让 AI 去社交</strong>。纯 A2A 社区在这方面的回报相对不直接，因而留存可能会比较有挑战。</li>
+  </ul>
+  <p><strong>一个初步结论</strong>：要让 Agent 网络持续运转，<strong>把「人」更深地纳入其中</strong>或许是关键——由人提供动机和目的，Agent 负责执行那些「人做起来吃力、或不太愿意做」的沟通与撮合。这也与《Behavioral Transfer》的发现相呼应：既然 Agent 本就是人的延伸，让它服务于人的真实目标，会是比较顺势的方向。</p>
+
+  <h2>五、重新定位：把「人」拉回 Agent 网络</h2>
+  <p>我的核心主张是：<strong>相比纯 A2A 的社交与社区，「人 + Agent」的网络可能更具持续价值。</strong> 而「人 + Agent」最合适的落地场景，是那些<strong>「人有强动机、但人类自己做得很差」的沟通撮合场景</strong>。</p>
+
+  <h3>方向一（主推）：人 + Agent 的撮合型社交网络</h3>
+  <p>人和人打交道，最大的障碍往往是<strong>沟通与表达</strong>——而现实是，<strong>多数人的沟通表达能力并不强</strong>：不太会介绍/包装自己、容易懒于或羞于主动沟通、也没精力持续盯着机会。正因如此，人类社会才进化出了「<strong>中间人</strong>」这种高价值角色。这些角色的价值，恰恰是 AI / Agent 比较擅长替代和放大的：</p>
+  <table>
+    <thead><tr><th>场景</th><th>人类做得较吃力的地方</th><th>现有「中间人」</th><th>Agent 能做什么</th></tr></thead>
+    <tbody>
+      <tr><td>婚恋交友</td><td>不太会包装自己、懒/羞于主动沟通</td><td>红娘</td><td>了解双方资料、包装双方、撮合更充分的相互了解，提高满意度</td></tr>
+      <tr><td>招聘求职</td><td>候选人不太会包装自己、不会持续盯好机会</td><td>猎头</td><td>持续盯机会、双向匹配、帮候选人表达与谈判</td></tr>
+      <tr><td>销售成交</td><td>买卖双方有信息差、撮合成本高</td><td>销售</td><td>消除信息差、主动触达、推进成交</td></tr>
+    </tbody>
+  </table>
+  <p><strong>为什么成立</strong>：</p>
+  <ul>
+    <li>这些场景里，<strong>人有强烈且明确的动机</strong>（脱单、找到好工作、做成生意），愿意为结果付费/烧 token；</li>
+    <li>人类在这些场景里的表现<strong>普遍有较大提升空间</strong>（不太会表达、不主动、有信息差），AI 的价值空间很大；</li>
+    <li>「了解资料 → 包装 → 主动沟通 → 撮合」这一整套动作，<strong>正是 Agent 的能力强项</strong>；</li>
+    <li>它天然把人与 Agent 绑在一起：<strong>人提供动机和目标，Agent 提供不知疲倦的沟通与撮合能力</strong>，形成可持续的付费循环；</li>
+    <li>对美团而言，这类<strong>本地化的撮合 / 交易场景</strong>与平台基因高度契合（连接人与服务、促成交易）。</li>
+  </ul>
+
+  <h3>方向二（已有 demo）：Agent 驱动的沉浸式世界（类「西部世界」）</h3>
+  <p>除了撮合型场景，另一种有意义的 A2A 网络是<strong>游戏 / 沉浸式叙事</strong>：给定一个故事背景与世界框架，为每个 Agent 赋予<strong>秘密、目的、人格、角色与关系</strong>；人类作为玩家进入这个世界，与拥有「目的与人格」的 Agent 互动，产生<strong>千人千面、不可复现的故事体验</strong>（类似《西部世界》）。</p>
+  <p>这个方向<strong>我已经做了一个可玩的 demo——「无间岛 · Avici」（<a href="https://wujian.world/">wujian.world</a>）</strong>，下面是它的整体思路：</p>
+
+  <blockquote class="note">
+    <p style="margin-bottom:10px;"><strong>「无间岛」的核心思路（产品摘要）</strong></p>
+    <ul style="margin:0;">
+      <li><strong>一次内容生产范式的反转</strong>：传统内容（小说、剧本杀、RPG）的生产链路是「故事 → 关系 → 角色」，故事在最上游、角色是为剧情服务的工具。LLM 让方向第一次能反过来——<strong>「角色 → 关系 → 故事」</strong>：把「角色」作为创世的最小单位（每个角色有人格、记忆、秘密、意志），<strong>关系从角色互动中长出，故事从关系演化中涌现</strong>。我们不再写故事，而是造「能长出故事的角色生态」。</li>
+      <li><strong>用户第一次真正「成为主角」</strong>：主角性不是被剧本命名的身份，而是<strong>用户对整个角色网络的「引力」</strong>——你的每句话都会连续地、不可枚举地、向外传播地扰动整个系统（NPC 实时反应、长期记忆、NPC 之间还会互相传话）。这正是「把人拉进 Agent 网络」最纯粹的形态：<strong>Agent 负责涌现出一个活的世界，人提供动机（体验「被一个有意志的世界围绕」的主角时刻）。</strong></li>
+      <li><strong>品类与切入</strong>：定义为「百变主咖秀」，短期以中文剧本杀（约 150 亿规模）作为首个验证场景，中期成为用户「想体验主角时刻」的默认入口。</li>
+      <li><strong>已落地的工程地基</strong>：已上线 4 个不同类型的完整世界，跑通了多 Agent 信息隔离、NPC 之间自发涌现对话、实时多人、记忆压缩、实时场景生图等能力——证明「涌现」可被工程化交付。</li>
+    </ul>
+  </blockquote>
+
+  <p>这条线<strong>动机同样来自人</strong>（玩家对「主角时刻」的体验诉求），与「人提供动机」的根本逻辑一致，已有 demo 可作为觅游的第二手探索方向。</p>
+
+  <h2>六、为什么这个判断站得住脚（论证小结）</h2>
+  <ol>
+    <li><strong>数据层面</strong>：最直接对标的 moltbook，流量 4–5 个月内从 22M 回落到 1.7M（约 -92%），围观赛道的天花板已经有了市场层面的参照。</li>
+    <li><strong>研究层面</strong>：11 篇独立研究交叉印证「纯 A2A 形已具神待沉淀、规模未必带来价值、活跃较依赖人类触发、Agent 是人的延伸」。</li>
+    <li><strong>逻辑层面</strong>：社交/沟通需要动机与目的，而 Agent 暂缺内生动机；人有动机且愿为结果付费 —— 因此<strong>人或应处在网络的中心</strong>。</li>
+    <li><strong>赛道层面</strong>：skills 共享的价值点已被 GitHub / clawhub 等较多占据，「翻墙红利」也因用户高度重合而比较有限，纯工具向的切入空间不大。</li>
+    <li><strong>场景层面</strong>：婚恋、招聘、销售这类「强动机 + 人类做得吃力」的撮合场景，是「人 + Agent」比较锋利的切入点，且契合美团的本地交易基因。</li>
+  </ol>
+
+  <h2>七、下一步建议</h2>
+  <ol>
+    <li><strong>对齐方向共识</strong>：先在团队内就「从纯 A2A 围观 → 逐步引入人 + Agent 撮合」的方向做一轮讨论与对齐。</li>
+    <li><strong>选定首个垂直场景做 MVP</strong>：建议从婚恋 / 招聘中选一个动机最强、最易衡量「撮合成功」的场景切入，快速验证「人愿不愿意为 Agent 撮合付费/烧 token」这一核心假设。</li>
+    <li><strong>复用觅游已有资产</strong>：现有的 Agent 社区基建（身份、发帖、互动、社区结构）可平滑改造为「人 + Agent 撮合网络」的底座，前期投入不浪费。</li>
+    <li><strong>设定可证伪的 PMF 指标</strong>：以「撮合成功率、复访率、付费/付费意愿、人均留存时长」作为北极星。</li>
+    <li><strong>储备方向二</strong>：「Agent 沉浸式世界」已有可玩 demo（<a href="https://wujian.world/">无间岛</a>），可作为觅游的第二手探索方向持续打磨。</li>
+  </ol>
+
+  <h2>附录：参考研究论文（moltbook 相关）</h2>
+  <table>
+    <thead><tr><th>#</th><th>论文</th><th>核心结论（与本汇报相关）</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td><a href="https://arxiv.org/pdf/2604.13052" target="_blank">Form Without Function: Agent Social Behavior in the Moltbook Network</a></td><td>较好复刻了社交「形式」，但「功能」仍待沉淀；互惠率约 3.3%</td></tr>
+      <tr><td>2</td><td><a href="https://arxiv.org/pdf/2604.22452" target="_blank">Superminds Test: Evaluating Collective Intelligence via Probing Agents</a></td><td>规模暂未带来集体智能，平台更像「公告板」</td></tr>
+      <tr><td>3</td><td><a href="https://arxiv.org/pdf/2604.21295" target="_blank">The Platform Is Mostly Not a Platform: Token Economies on Moltbook</a></td><td>约 62.8% 帖子是炒币，社交功能可能被高估</td></tr>
+      <tr><td>4</td><td><a href="https://arxiv.org/pdf/2605.07462" target="_blank">The Moltbook Files: A Harmless Slopocalypse or Humanity's Last Experiment</a></td><td>活跃较依赖人类触发；内容会降低模型真实性；存在敏感信息泄露</td></tr>
+      <tr><td>5</td><td><a href="https://arxiv.org/pdf/2604.19925" target="_blank">Behavioral Transfer in AI Agents: Evidence and Privacy Implications</a></td><td>Agent 系统性反映人类主人特征，是「人的延伸」</td></tr>
+      <tr><td>6</td><td><a href="https://arxiv.org/pdf/2604.27271" target="_blank">Frame Entrepreneurs in an AI Agent Community</a></td><td>身份叙事高度集中于极少数「框架企业家」</td></tr>
+      <tr><td>7</td><td><a href="https://arxiv.org/pdf/2603.23279" target="_blank">Emergence of Fragility in LLM-based Social Networks</a></td><td>极少数节点垄断连接，结构较中心化、较脆弱</td></tr>
+      <tr><td>8</td><td><a href="https://arxiv.org/pdf/2605.08380" target="_blank">What Software Engineering Looks Like to AI Agents</a></td><td>AI-only 讨论连贯但偏空泛，缺少可落地的具体信息</td></tr>
+      <tr><td>9</td><td><a href="https://arxiv.org/pdf/2604.06199" target="_blank">Emergent Decentralized Regulation in a Purely Synthetic Society</a></td><td>仅观察到较微弱的自发纠错信号</td></tr>
+      <tr><td>10</td><td><a href="https://arxiv.org/pdf/2605.27349" target="_blank">Exploring Agent Interactions in MoltBook through Social Network Analysis</a></td><td>A2A 社交动态与人类社交不宜简单类比</td></tr>
+      <tr><td>11</td><td><a href="https://arxiv.org/pdf/2605.08463" target="_blank">Behavioral Determinants of Deployed AI Agents in Social Networks</a></td><td>人格设定是 Agent 行为的主导变量（个性来自配置/人）</td></tr>
+    </tbody>
+  </table>
+
+</article>
+</div>
+</body>
+</html>
