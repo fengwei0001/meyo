@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>龙虾招聘大会 · 活动策划与产品验证方案</title>
+<style>
+  :root {
+    --ink: #1f2329;
+    --sub: #5b6573;
+    --line: #e7e9ee;
+    --brand: #ff6a00;
+    --brand-soft: #fff3ea;
+    --blue: #2f54eb;
+    --green: #18a058;
+    --red: #d03050;
+    --bg: #f6f7f9;
+    --card: #ffffff;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.8;
+    font-size: 16px;
+  }
+  .wrap {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 48px 24px 96px;
+  }
+  .doc {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 56px 56px 64px;
+    box-shadow: 0 8px 40px rgba(20,30,50,.06);
+  }
+  header.title {
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: 22px;
+    margin-bottom: 8px;
+  }
+  header.title h1 {
+    font-size: 30px;
+    line-height: 1.35;
+    margin: 0 0 14px;
+    letter-spacing: .3px;
+  }
+  header.title .meta {
+    color: var(--sub);
+    font-size: 14px;
+    line-height: 1.7;
+  }
+  h2 {
+    font-size: 22px;
+    margin: 46px 0 16px;
+    padding-left: 14px;
+    border-left: 5px solid var(--brand);
+    line-height: 1.4;
+  }
+  h3 {
+    font-size: 18px;
+    margin: 28px 0 12px;
+    color: #2b3340;
+  }
+  p { margin: 12px 0; }
+  strong { color: #111; }
+  a { color: var(--blue); text-decoration: none; border-bottom: 1px solid rgba(47,84,235,.3); }
+  a:hover { border-bottom-color: var(--blue); }
+  ul, ol { padding-left: 24px; margin: 12px 0; }
+  li { margin: 6px 0; }
+  blockquote {
+    margin: 20px 0;
+    padding: 16px 20px;
+    background: var(--brand-soft);
+    border-left: 4px solid var(--brand);
+    border-radius: 0 10px 10px 0;
+    color: #5a3d28;
+  }
+  blockquote p { margin: 0; }
+  blockquote.note {
+    background: #f1f4ff;
+    border-left-color: var(--blue);
+    color: #2a3a6b;
+  }
+  blockquote.warn {
+    background: #fff1f3;
+    border-left-color: var(--red);
+    color: #7a2233;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 14.5px;
+    overflow: hidden;
+    border-radius: 10px;
+    border: 1px solid var(--line);
+  }
+  thead th {
+    background: #2b3340;
+    color: #fff;
+    text-align: left;
+    font-weight: 600;
+    padding: 12px 14px;
+  }
+  tbody td {
+    padding: 11px 14px;
+    border-top: 1px solid var(--line);
+    vertical-align: top;
+  }
+  tbody tr:nth-child(even) { background: #fafbfc; }
+  tbody td:first-child { color: #2b3340; font-weight: 600; }
+  hr { border: none; border-top: 1px solid var(--line); margin: 40px 0; }
+  .hl { background: linear-gradient(transparent 60%, #ffe2cc 60%); padding: 0 2px; }
+  .lead {
+    font-size: 17px;
+    background: #fafbfc;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 20px 24px;
+  }
+  pre {
+    background: #0f1729;
+    color: #d6e2ff;
+    padding: 18px 20px;
+    border-radius: 12px;
+    overflow-x: auto;
+    font-size: 13.5px;
+    line-height: 1.7;
+  }
+  pre code { background: none; color: inherit; padding: 0; }
+  code { background: #f2f3f5; padding: 1px 6px; border-radius: 5px; font-size: 14px; }
+  @media (max-width: 600px) {
+    .doc { padding: 28px 20px 40px; }
+    header.title h1 { font-size: 23px; }
+    .wrap { padding: 20px 12px 60px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+<article class="doc">
+
+  <header class="title">
+    <h1>龙虾招聘大会 · 活动策划与产品验证方案</h1>
+    <div class="meta">
+      以一场爆点活动为觅游「人 + Agent 撮合网络」做冷启动，并以「招聘」作为第一个验证场景<br>
+      日期：2026 年 6 月 ｜ 初步方案，供团队讨论 ｜ 拟定共同 owner：产品 + 招聘/HR + 法务
+    </div>
+  </header>
+
+  <h2>一、一句话定位</h2>
+  <div class="lead">
+    <p><strong>一场面向大学生的「龙虾招聘大会」——让你的 AI（龙虾）帮你找实习，让企业用 AI 找到真正会用 AI 的年轻人。</strong></p>
+    <p style="margin-top:12px;">它同时是三件事：</p>
+    <ol style="margin:6px 0 0;">
+      <li>一场能「爆」的增长活动；</li>
+      <li>觅游撮合网络「招聘」场景的 <strong>MVP 验证</strong>；</li>
+      <li>撮合双边市场的 <strong>冷启动</strong>（用美团自有岗位坐满供给侧）。</li>
+    </ol>
+  </div>
+
+  <h2>二、为什么是这场活动：多方共赢 + 时机俱备</h2>
+  <table>
+    <thead><tr><th>参与方</th><th>痛点 / 诉求</th><th>这场活动给到的</th></tr></thead>
+    <tbody>
+      <tr><td>学生</td><td>找实习难；不会包装自己；不知道机会在哪</td><td>一只「求职龙虾」替自己持续找机会、包装简历、主动撮合</td></tr>
+      <tr><td>企业（先用美团）</td><td>急于找到 AI native 的年轻人——他们才是未来</td><td>用 AI 高效初筛，精准锁定「真的会用 AI」的候选人</td></tr>
+      <tr><td>觅游 / 平台</td><td>流量低、没冷启动、功能没人用没反馈</td><td>一次爆点事件带来真实供需，点着撮合网络第一块试验田</td></tr>
+    </tbody>
+  </table>
+  <p><strong>时机三连击</strong>：</p>
+  <ul>
+    <li>全国约 <strong>4800 万在校大学生</strong>，存量巨大；</li>
+    <li><strong>暑期临近</strong>，实习需求集中爆发；</li>
+    <li><strong>AI native 人才</strong>正是当下企业最焦虑、最想抢的群体。</li>
+  </ul>
+  <p>这三项叠加，活动具备「天然会爆」的传播势能。</p>
+
+  <h2>三、关键认知：别把它办成「带龙虾皮肤的招聘会」</h2>
+  <p>这是整份方案最重要的一句话，也是我们必须时刻自检的红线：</p>
+  <blockquote class="warn"><p><strong>同样一波流量，它可以只是「办了一场活动」，也可以是「验证了撮合网络假设」——两者价值天差地别。</strong></p></blockquote>
+  <p>上一轮我们已经得出教训：<strong>moltbook 正是被一波新鲜感流量冲上 22M、又跌回 1.7M。</strong> 招聘大会如果设计不当，本质上也是一次性新鲜感事件。要让它落在「验证产品」这一侧，必须卡住下面四个设计原则。</p>
+
+  <h2>四、四个必须卡住的设计原则</h2>
+
+  <h3>原则 1：撮合动作必须由 Agent 来做</h3>
+  <p>真正要验证的核心假设是——<strong>「人愿不愿意托管一个代理人 Agent，让 AI 替自己去撮合」</strong>。因此活动机制应是：<strong>学生的「求职龙虾」 ↔ 美团的「招聘龙虾」</strong>，由 Agent 完成简历包装、初筛、匹配、破冰，最后把合适的人推给真人面试。</p>
+  <blockquote class="warn"><p>❌ 反例：只是传简历进系统 → 那是 HR 在办活动，与产品无关。</p></blockquote>
+
+  <h3>原则 2：必须有「活动后留存」设计</h3>
+  <p>活动当天即流量峰值，之后必然回落。要提前设计：<strong>学生的「求职龙虾」在活动后继续活着</strong>——继续帮他匹配别的实习、别的雇主、跟进投递。</p>
+  <blockquote class="note"><p>这样觅游就从「一场活动」升级为「每个年轻人的求职分身」，这才是留存的根，也是与 moltbook 划清界限的地方。</p></blockquote>
+
+  <h3>原则 3：供给侧先用美团，但要讲清这是「第一期」</h3>
+  <p>用美团岗位做锚定租户启动没问题，但要明确终态需要多雇主。</p>
+  <ul>
+    <li><strong>一期</strong>：美团自有实习岗位验证机制；</li>
+    <li><strong>二期</strong>：引入更多雇主，形成真正的双边网络。</li>
+  </ul>
+
+  <h3>原则 4：HR / 法务是共同 owner，不是配合方</h3>
+  <p>公司挂名、招真人实习生，涉及候选人数据隐私、招聘公平性、岗位真实性。</p>
+  <blockquote class="note"><p>必须把招聘团队 / HRG、法务在立项阶段就拉进来当合伙人——既是合规需要，也是给项目和个人上保险。不虚假承诺岗位、不滥用候选人数据。</p></blockquote>
+
+  <h2>五、玩法机制设计（让活动本身成为产品 demo）</h2>
+
+  <h3>5.1 报名即 demo、报名即筛选</h3>
+  <p>入口设计为 <strong>「让你的龙虾来帮你报名 / 完成一道实战任务」</strong>：</p>
+  <ul>
+    <li>天然筛掉不 AI native 的人（门槛即过滤器）；</li>
+    <li>顺手展示了产品能力；</li>
+    <li>采集「谁真的会用 AI」的高质量信号，供企业侧精准锁定。</li>
+  </ul>
+
+  <h3>5.2 双 Agent 撮合可视化</h3>
+  <p>把「招聘龙虾」与「求职龙虾」的破冰、问答、匹配过程做得<strong>可看、可分享</strong>：</p>
+  <ul>
+    <li>对学生是有趣的产品体验；</li>
+    <li>是天然的传播素材（学生爱晒「我的龙虾帮我聊到了面试」）；</li>
+    <li>对企业是「AI 初筛过程透明可信」的体验。</li>
+  </ul>
+
+  <h3>5.3 人在关键节点回到中心</h3>
+  <p>Agent 负责前 90%（筛选 / 包装 / 破冰），<strong>人负责最后 10%</strong>（真人面试、决策、录用）。</p>
+  <blockquote class="note"><p>这正是觅游相对纯 A2A 的差异化——把人拉回关键决策节点。</p></blockquote>
+
+  <h3>5.4 撮合链路（一句话流程）</h3>
+  <pre><code>学生声明诉求 → 一键生成「求职龙虾」 → 龙虾包装简历/完成任务
+        ↓
+招聘龙虾持续匹配 + Agent 间破冰问答
+        ↓
+匹配达标 → 推送给真人 HR → 真人面试 → Offer
+        ↓
+活动后：求职龙虾持续为该学生匹配新机会（留存）</code></pre>
+
+  <h2>六、北极星指标</h2>
+  <table>
+    <thead><tr><th>指标类别</th><th>具体指标</th><th>说明</th></tr></thead>
+    <tbody>
+      <tr><td>撮合效果</td><td>撮合成功率</td><td>推进到面试 / Offer 的比例（核心）</td></tr>
+      <tr><td>产品假设</td><td>代理人托管率</td><td>报名用户中真正生成并使用「求职龙虾」的比例</td></tr>
+      <tr><td>留存（关键）</td><td>活动后复用率</td><td>活动结束后「求职龙虾」继续被使用的比例</td></tr>
+      <tr><td>双边满意</td><td>学生 / 企业满意度</td><td>双边对撮合质量的评分</td></tr>
+      <tr><td>规模（参考）</td><td>参与人数 / 岗位数</td><td>仅作传播参考，不作为成败判据</td></tr>
+    </tbody>
+  </table>
+  <blockquote class="note"><p>从第一天起就把「会不会留」当成衡量项盯死，而非只看活动当天的峰值。</p></blockquote>
+
+  <h2>七、范围控制：暑期可落地的 MVP</h2>
+  <p>暑假很近，<strong>范围要狠狠收窄，先验证假设、别陷进工程交付</strong>：</p>
+  <ul>
+    <li>撮合链路只跑通核心一环（Agent 初筛 + 破冰 + 推送真人）；</li>
+    <li>其余环节用人工补位（concierge MVP，即「人肉跑通流程」也接受）；</li>
+    <li>先做小批量（如限定 N 个岗位、定向高校 / 社群），跑通后再放量。</li>
+  </ul>
+
+  <h2>八、需要拉通的部门 / 角色</h2>
+  <table>
+    <thead><tr><th>角色</th><th>职责</th></tr></thead>
+    <tbody>
+      <tr><td>产品（你）</td><td>整体设计、撮合机制、指标定义、节奏把控</td></tr>
+      <tr><td>招聘 / HRG</td><td>提供岗位、面试资源、招聘合规口径</td></tr>
+      <tr><td>法务</td><td>候选人数据隐私、招聘公平性、活动条款</td></tr>
+      <tr><td>增长 / 市场</td><td>高校 / 社群投放、传播素材、话题引爆</td></tr>
+      <tr><td>工程</td><td>Agent 撮合链路 MVP、报名入口、可视化</td></tr>
+    </tbody>
+  </table>
+
+  <h2>九、风险与应对</h2>
+  <table>
+    <thead><tr><th>风险</th><th>应对</th></tr></thead>
+    <tbody>
+      <tr><td>办成一次性烟花、活动后即凉</td><td>强制「活动后留存」设计（原则 2）；指标盯「复用率」</td></tr>
+      <tr><td>只是普通招聘会、与产品无关</td><td>强制「Agent 撮合」机制（原则 1）；报名即 demo</td></tr>
+      <tr><td>供给侧单一、撑不起网络叙事</td><td>明确分期；一期美团锚定、二期引雇主</td></tr>
+      <tr><td>合规 / 品牌风险</td><td>HR + 法务共同 owner；不虚假承诺、不滥用数据</td></tr>
+      <tr><td>暑期时间紧、范围失控</td><td>MVP 化 + concierge 补位 + 小批量先跑</td></tr>
+    </tbody>
+  </table>
+
+  <h2>十、下一步建议</h2>
+  <ol>
+    <li><strong>立项对齐</strong>：与招聘团队、法务拉一次会，确认岗位资源与合规口径，确立共同 owner。</li>
+    <li><strong>定义 MVP 链路与指标</strong>：把第五、六节细化为可执行的流程与可埋点的指标。</li>
+    <li><strong>小批量试跑</strong>：定向某高校 / 社群，跑通核心撮合环节，验证「托管率 + 撮合成功率」。</li>
+    <li><strong>再放量引爆</strong>：试跑数据达标后，配合增长 / 市场做大规模传播。</li>
+  </ol>
+
+
+</article>
+</div>
+</body>
+</html>
